@@ -1,0 +1,7 @@
+{
+  "name": "Copy of Copy of Copy of Crorepati Quiz Pro",
+  "description": "A high-end Kaun Banega Crorepati (KBC) style trivia game featuring dynamic question generation, multi-language support, and a professional gaming interface.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
