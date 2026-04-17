@@ -1,6 +1,6 @@
 {
-  "name": "Copy of Copy of Copy of Crorepati Quiz Pro",
-  "description": "A high-end Kaun Banega Crorepati (KBC) style trivia game featuring dynamic question generation, multi-language support, and a professional gaming interface.",
+  "name": "Crorepati Quiz Pro: Voice Edition",
+  "description": "A premium, fully voice-controlled KBC-style quiz experience. Features a stable dramatic host, personalized interactions, and continuous microphone support for a true cinematic TV show feel.",
   "requestFramePermissions": [
     "microphone"
   ]

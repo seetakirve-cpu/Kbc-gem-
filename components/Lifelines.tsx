@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Split, Users, Repeat, RefreshCw } from 'lucide-react';
 import { Lifelines as LifelinesType } from '../types';
 
 interface Props {
@@ -10,10 +11,10 @@ interface Props {
 
 const Lifelines: React.FC<Props> = ({ lifelines, onUse, disabled }) => {
   const items = [
-    { key: 'fiftyFifty' as keyof LifelinesType, label: '50:50', icon: 'fa-adjust' },
-    { key: 'audiencePoll' as keyof LifelinesType, label: 'Audience Poll', icon: 'fa-users' },
-    { key: 'doubleDip' as keyof LifelinesType, label: 'Double Dip', icon: 'fa-repeat' },
-    { key: 'flipQuestion' as keyof LifelinesType, label: 'Flip', icon: 'fa-shuffle' },
+    { key: 'fiftyFifty' as keyof LifelinesType, label: '50:50', icon: Split },
+    { key: 'audiencePoll' as keyof LifelinesType, label: 'Audience Poll', icon: Users },
+    { key: 'doubleDip' as keyof LifelinesType, label: 'Double Dip', icon: Repeat },
+    { key: 'flipQuestion' as keyof LifelinesType, label: 'Flip', icon: RefreshCw },
   ];
 
   return (
@@ -33,7 +34,7 @@ const Lifelines: React.FC<Props> = ({ lifelines, onUse, disabled }) => {
           {lifelines[item.key] && (
             <div className="absolute top-0 right-0 w-3 h-3 bg-green-500 rounded-full border border-white animate-pulse"></div>
           )}
-          <i className={`fas ${item.icon} text-sm md:text-2xl ${!lifelines[item.key] ? 'text-gray-600' : 'gold-text group-hover:text-white'}`}></i>
+          <item.icon className={`w-5 h-5 md:w-8 md:h-8 ${!lifelines[item.key] ? 'text-gray-600' : 'gold-text group-hover:text-white'}`} />
           
           <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-black/90 border border-[#d4af37] px-2 py-0.5 rounded text-[8px] gold-text font-black whitespace-nowrap pointer-events-none z-50">
             {item.label}

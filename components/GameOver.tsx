@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Medal } from 'lucide-react';
 import { Language } from '../types.ts';
 import { MONEY_TREE } from '../constants.tsx';
 import Certificate from './Certificate.tsx';
@@ -72,7 +73,7 @@ const GameOver: React.FC<Props> = ({ isWon, levelReached, language, onRestart })
               onClick={() => setShowCertificate(true)}
               className="w-full md:w-auto bg-gradient-to-r from-green-600 to-green-500 text-white font-black py-4 px-12 rounded-full text-2xl hover:brightness-110 transition-all transform hover:scale-105 active:scale-95 shadow-[0_10px_30px_rgba(34,197,94,0.4)]"
             >
-              <i className="fas fa-medal mr-3"></i>
+              <Medal className="w-8 h-8 mr-3 inline-block" />
               {isHindi ? 'सर्टिफिकेट देखें' : 'VIEW CERTIFICATE'}
             </button>
           )}

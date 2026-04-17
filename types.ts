@@ -9,8 +9,19 @@ export enum GameStatus {
   LANGUAGE_SELECT = 'LANGUAGE_SELECT',
   DISCLAIMER = 'DISCLAIMER',
   PLAYING = 'PLAYING',
+  SPIN_WIN = 'SPIN_WIN',
   WON = 'WON',
   LOST = 'LOST'
+}
+
+export type RewardType = 'EXTRA_LIFE' | 'TIME_FREEZE' | 'SHIELD' | 'DOUBLE_MONEY' | 'HINT' | 'MULTIPLIER';
+
+export interface Reward {
+  type: RewardType;
+  label: string;
+  description: string;
+  hindiLabel: string;
+  hindiDescription: string;
 }
 
 export interface Question {
@@ -23,6 +34,7 @@ export interface Question {
   };
   correctAnswer: 'A' | 'B' | 'C' | 'D';
   explanation: string;
+  hostIntro?: string; // Dramatic intro for this specific question
 }
 
 export interface Level {

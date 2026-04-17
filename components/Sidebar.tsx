@@ -1,12 +1,29 @@
 
 import React from 'react';
 import { MONEY_TREE } from '../constants';
+import { Reward } from '../types';
+import { Gift, Zap, Shield, Repeat, Coins, Lightbulb } from 'lucide-react';
 
 interface Props {
   currentLevel: number;
+  activeReward: Reward | null;
 }
 
-const Sidebar: React.FC<Props> = ({ currentLevel }) => {
+const Sidebar: React.FC<Props> = ({ currentLevel, activeReward }) => {
+  const isHindi = activeReward?.hindiLabel !== undefined;
+
+  const RewardIcon = () => {
+    if (!activeReward) return null;
+    switch (activeReward.type) {
+      case 'EXTRA_LIFE': return <Repeat className="gold-text w-5 h-5" />;
+      case 'TIME_FREEZE': return <Zap className="gold-text w-5 h-5" />;
+      case 'SHIELD': return <Shield className="gold-text w-5 h-5" />;
+      case 'DOUBLE_MONEY': return <Coins className="gold-text w-5 h-5" />;
+      case 'HINT': return <Lightbulb className="gold-text w-5 h-5" />;
+      case 'MULTIPLIER': return <Gift className="gold-text w-5 h-5" />;
+      default: return <Gift className="gold-text w-5 h-5" />;
+    }
+  };
   return (
     <div className="bg-[#000d1a]/95 w-full h-full p-6 flex flex-col border-l border-[#d4af37]/30 shadow-2xl overflow-y-auto">
       <div className="mb-6 text-center">
@@ -61,6 +78,21 @@ const Sidebar: React.FC<Props> = ({ currentLevel }) => {
           );
         })}
       </div>
+
+      {activeReward && (
+        <div className="mt-8 p-4 rounded-xl gold-border bg-[#001a33] animate-pulse">
+          <div className="flex items-center gap-3 mb-2">
+            <RewardIcon />
+            <span className="gold-text font-black uppercase text-xs tracking-tighter italic">ACTIVE REWARD</span>
+          </div>
+          <p className="text-white font-black uppercase text-lg leading-tight">
+            {isHindi ? activeReward.hindiLabel : activeReward.label}
+          </p>
+          <p className="text-blue-200 text-[10px] italic mt-1 leading-tight">
+            {isHindi ? activeReward.hindiDescription : activeReward.description}
+          </p>
+        </div>
+      )}
 
       <div className="mt-auto pt-4 text-center">
         <p className="text-[10px] gold-text opacity-40 font-bold uppercase tracking-widest">

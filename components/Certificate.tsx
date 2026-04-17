@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+import { User, Award } from 'lucide-react';
 import { Language } from '../types';
 
 interface Props {
@@ -46,7 +47,7 @@ const Certificate: React.FC<Props> = ({ language, amount }) => {
               <img src={photo} alt="Winner" className="w-full h-full object-cover" />
             ) : (
               <div className="text-gray-300 flex flex-col items-center">
-                <i className="fas fa-user text-4xl md:text-6xl mb-2"></i>
+                <User className="w-12 h-12 md:w-16 md:h-16 mb-2" />
                 <span className="text-[10px] md:text-xs">{isHindi ? 'फोटो अपलोड करें' : 'Upload Photo'}</span>
               </div>
             )}
@@ -92,7 +93,7 @@ const Certificate: React.FC<Props> = ({ language, amount }) => {
           </div>
           <div className="relative w-24 h-24 md:w-32 md:h-32 flex items-center justify-center">
              <div className="absolute inset-0 bg-[#d4af37] rounded-full opacity-10 animate-pulse"></div>
-             <i className="fas fa-award text-5xl md:text-7xl text-[#d4af37]"></i>
+             <Award className="w-16 h-16 md:w-20 md:h-20 text-[#d4af37]" />
              <div className="absolute inset-0 border-4 border-[#d4af37] rounded-full scale-110"></div>
           </div>
           <div className="text-center">
